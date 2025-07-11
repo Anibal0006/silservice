@@ -1,135 +1,237 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NovaBoost</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0d0d0d;
-      color: #f0f0f0;
-    }
-    header {
-      background-color: #000;
-      padding: 2rem;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      color: #00ffff;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #ccc;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      background-color: #111;
-      padding: 1rem 0;
-    }
-    nav a {
-      color: #00ffff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    section h2 {
-      color: #00ffff;
-      margin-bottom: 1rem;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-    .service {
-      background: #1a1a1a;
-      padding: 1.5rem;
-      border-radius: 10px;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #000;
-      color: #666;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin-bottom: 1rem;
-      background: #1a1a1a;
-      border: 1px solid #333;
-      color: #f0f0f0;
-      border-radius: 5px;
-    }
-    button {
-      padding: 0.8rem 1.5rem;
-      background: #00ffff;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NovaBoost - Impulsa tu Marca</title>
+<meta name="description" content="Agencia creativa con diseño visual premium y automatización que capta clientes mientras descansas.">
+<link rel="icon" href="https://anibal0006.github.io/silservices/assets/novaboost-logo-transparent.png" type="image/png" />
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-color: #ffffff;
+  --primary-color: #2c3e50;
+  --accent-color: #c59d5f;
+  --text-color: #2c3e50;
+  --card-bg: rgba(0,0,0,0.05);
+}
+body.dark-mode {
+  --bg-color: #1e1e1e;
+  --primary-color: #f0f0f0;
+  --accent-color: #c59d5f;
+  --text-color: #f0f0f0;
+  --card-bg: rgba(255,255,255,0.05);
+}
+html, body {
+  margin: 0; padding: 0; box-sizing: border-box;
+  background: var(--bg-color); color: var(--text-color);
+  font-family: 'Nunito Sans', sans-serif;
+  scroll-behavior: smooth; overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
+}
+header {
+  min-height: 100vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  background: linear-gradient(135deg, var(--bg-color), #f8f8f8);
+  transition: background 0.4s;
+}
+header img {
+  max-width: 140px; margin-bottom: 1rem;
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 9vw, 9rem);
+  color: var(--primary-color); margin: 0;
+  transition: color 0.4s;
+}
+header p {
+  max-width: 600px; font-size: 1.3rem; margin: 1rem;
+  color: var(--primary-color);
+  transition: color 0.4s;
+}
+button {
+  background: var(--accent-color); color: #fff;
+  padding: 0.9rem 2rem; border: none; border-radius: 50px;
+  cursor: pointer; font-weight: 600; font-size: 1rem;
+  position: relative; overflow: hidden; z-index: 1;
+  transition: background 0.3s;
+}
+button::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+  animation: rotate 4s linear infinite;
+}
+@keyframes rotate {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+button:hover {
+  background: var(--primary-color);
+}
+.theme-toggle {
+  position: fixed;
+  top: 15px; right: 15px;
+  background: none; border: none;
+  font-size: 1.5rem; cursor: pointer;
+  color: var(--accent-color);
+  z-index: 1000;
+  transition: transform 0.3s;
+}
+.theme-toggle:hover {
+  transform: scale(1.15);
+}
+section {
+  padding: 4rem 1rem; max-width: 1000px; margin: auto; text-align: center;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  transition: color 0.4s;
+}
+.feature-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: var(--card-bg);
+  padding: 1.5rem; border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.4s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+footer {
+  text-align: center; padding: 2rem; font-size: 0.9rem; color: #777;
+  transition: color 0.4s;
+}
+.whatsapp {
+  position: fixed;
+  bottom: 20px; right: 20px;
+  width: 55px; height: 55px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+.whatsapp:hover {
+  transform: scale(1.1);
+}
+.whatsapp img {
+  width: 28px; height: 28px;
+}
+/* Marquee valoraciones */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  width: 100%;
+}
+.marquee-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 30s linear infinite;
+}
+.marquee-content.paused {
+  animation-play-state: paused;
+}
+.marquee span {
+  display: inline-block;
+  margin-right: 3rem;
+  font-size: 1rem;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <h1>NovaBoost</h1>
-    <p>Impulsamos tu negocio con automatización y estrategias que aumentan ventas</p>
-  </header>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</button>
 
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#explicacion">Cómo ayudamos</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+<header>
+  <img src="https://anibal0006.github.io/silservices/assets/novaboost-logo-transparent.png" alt="Logo NovaBoost">
+  <h1>NovaBoost</h1>
+  <p>Impulsamos tu marca con diseño visual premium y automatización que capta clientes mientras descansas.</p>
+  <button onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Impulsar mi marca</button>
+</header>
 
-  <section id="explicacion">
-    <h2>¿Cómo ayudamos a tu empresa?</h2>
-    <p>Automatizamos tareas repetitivas, optimizamos tus procesos internos y diseñamos embudos de ventas digitales. Así puedes ahorrar tiempo, reducir errores humanos y aumentar ingresos con menos esfuerzo.</p>
-  </section>
+<section id="servicios">
+  <h2>Servicios</h2>
+  <div class="feature-grid">
+    <div class="card"><h3>Diseño Web Premium</h3><p>Webs elegantes y optimizadas que convierten visitas en clientes.</p></div>
+    <div class="card"><h3>Automatización</h3><p>CRM, pagos y reservas funcionando en automático para ti.</p></div>
+    <div class="card"><h3>Marketing Visual</h3><p>Contenido visual premium que fideliza a tu audiencia.</p></div>
+    <div class="card"><h3>Funnels de Venta</h3><p>Embudos de conversión estratégicos que venden solos.</p></div>
+    <div class="card"><h3>SEO Estratégico</h3><p>Posiciona tu web en Google para atraer clientes constantes.</p></div>
+    <div class="card"><h3>Branding</h3><p>Construye una identidad visual sólida y memorable.</p></div>
+  </div>
+</section>
 
-  <section id="servicios">
-    <h2>Servicios</h2>
-    <div class="services">
-      <div class="service">
-        <h3>Automatización de procesos</h3>
-        <p>Configuramos sistemas para que tareas repetitivas se hagan solas con herramientas como Zapier, Make, Airtable y más.</p>
-      </div>
-      <div class="service">
-        <h3>Optimización de embudos de venta</h3>
-        <p>Diseñamos estrategias de conversión digital para captar clientes potenciales y convertirlos en ventas reales.</p>
-      </div>
-      <div class="service">
-        <h3>Integración de herramientas</h3>
-        <p>Conectamos tus plataformas (CRM, web, correo, redes) para que funcionen juntas y no pierdas información.</p>
-      </div>
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <p>Transformamos negocios con estrategias visuales y automatizadas.</p>
+  <img src="https://source.unsplash.com/800x400/?business,website" alt="Portfolio NovaBoost" style="width:90%;max-width:800px;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.1);" loading="lazy">
+</section>
+
+<section id="valoraciones">
+  <h2>Valoraciones</h2>
+  <div class="marquee" id="marquee">
+    <div class="marquee-content" id="marqueeContent">
+      <span>★★★★★ "Duplicamos reservas en 2 meses." - Laura, Spa & Wellness</span>
+      <span>★★★★★ "Automatización impecable y diseño premium." - Carlos, Consultor</span>
+      <span>★★★★★ "Mi tienda online vende mientras duermo." - Ana, Ecommerce</span>
+      <span>★★★★★ "Visualmente impactante y rápido." - Javier, Coach</span>
+      <span>★★★★★ "Triplicamos reservas con NovaBoost." - Marta, Academia</span>
+      <span>★★★★★ "Gestión automática de reservas y pagos." - Andrés, Veterinario</span>
+      <span>★★★★★ "Duplicamos reservas en 2 meses." - Laura, Spa & Wellness</span>
+      <span>★★★★★ "Automatización impecable y diseño premium." - Carlos, Consultor</span>
+      <span>★★★★★ "Mi tienda online vende mientras duermo." - Ana, Ecommerce</span>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <form>
-      <input type="text" placeholder="Nombre" required />
-      <input type="email" placeholder="Correo electrónico" required />
-      <textarea placeholder="Mensaje" rows="5" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+<section id="contacto">
+  <h2>Contáctanos</h2>
+  <p>Rellena este formulario para comenzar tu transformación con NovaBoost.</p>
+  <form action="https://formsubmit.co/Anibal.vargas1@icloud.com" method="POST" style="display:flex;flex-direction:column;gap:1rem;max-width:400px;margin:auto;">
+    <input type="text" name="name" placeholder="Tu nombre" required>
+    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+    <textarea name="message" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
 
-  <footer>
-    <p>&copy; 2025 NovaBoost. Todos los derechos reservados.</p>
-  </footer>
+<footer>
+<p>&copy; 2025 NovaBoost. Todos los derechos reservados.</p>
+</footer>
+
+<a href="https://wa.me/34679016719" class="whatsapp" title="Contáctanos por WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<script>
+function toggleTheme() {
+  document.body.classList.toggle('dark-mode');
+  const icon = document.getElementById('themeToggle');
+  icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+}
+
+// Control pausa valoraciones al mantener click/touch
+const marqueeContent = document.getElementById('marqueeContent');
+document.addEventListener('mousedown', () => marqueeContent.classList.add('paused'));
+document.addEventListener('mouseup', () => marqueeContent.classList.remove('paused'));
+document.addEventListener('touchstart', () => marqueeContent.classList.add('paused'));
+document.addEventListener('touchend', () => marqueeContent.classList.remove('paused'));
+</script>
 </body>
 </html>
